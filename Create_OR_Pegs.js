@@ -12,12 +12,16 @@ function Create_OR_Pegs() {
         // recup QUE les pegs
         if (node.type(selected_nodes[i]) == "PEG") {
             // dupplique le peg + renomme
-            
+            var parentpeg = selected_nodes
             var new_name = node.getName(selected_nodes[i])
             // objet nouveau nom avec le prefix
             new_name = "OR-" + new_name.slice(0, new_name.length)
-            // objet peg supplementaire avec le new_name
-            new_peg = node.add(new_name,)
+            // objet placement du peg add avec le new_name
+            var xpos = node.coordX(selected_nodes[i])-5
+			var ypos = node.coordY(selected_nodes[i])-30
+			var zpos = node.coordZ(selected_nodes[i])
+		
+            new_peg = node.add(parentpeg,new_name,"PEG",xpos, ypos, zpos)
 
 
             // copie-colle le pivot du peg original vers le nouveau peg
